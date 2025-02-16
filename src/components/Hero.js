@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import heroImage from '../assets/images/hero.jpg';
 import ChatModal from './ChatModal';
+import resumePDF from '../assets/files/resume.pdf';
 
 const Hero = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -19,15 +20,28 @@ const Hero = () => {
               <p className="text-xl md:text-3xl text-white/90 mb-12 max-w-2xl">
                 Transforming data into actionable insights with cutting-edge technology and creative solutions.
               </p>
-              <button 
-                onClick={() => setIsChatOpen(true)}
-                className="bg-[#14C800] text-white text-xl px-8 py-4 rounded-lg 
-                  transition-all duration-300 hover:bg-[#14C800]/90 
-                  hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)] 
-                  transform hover:-translate-y-1"
-              >
-                Chat with my AI assistant
-              </button>
+              <div className="flex gap-4 flex-wrap">
+                <button 
+                  onClick={() => setIsChatOpen(true)}
+                  className="bg-[#14C800] text-white text-xl px-8 py-4 rounded-lg 
+                    transition-all duration-300 hover:bg-[#14C800]/90 
+                    hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)] 
+                    transform hover:-translate-y-1"
+                >
+                  Chat with my AI assistant
+                </button>
+                <a 
+                  href={resumePDF}
+                  download="Andres_Franco_Resume.pdf"
+                  className="bg-[#14C800] text-white text-xl px-8 py-4 rounded-lg 
+                    transition-all duration-300 hover:bg-[#14C800]/90 
+                    hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)] 
+                    transform hover:-translate-y-1
+                    inline-flex items-center"
+                >
+                  Download my CV
+                </a>
+              </div>
             </div>
           </div>
 

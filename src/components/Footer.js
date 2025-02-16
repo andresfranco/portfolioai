@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-800 text-white text-center py-8">
-      <p>&copy; 2023 John Doe. All rights reserved.</p>
+      <p>&copy; {currentYear} Andres Franco. All rights reserved.</p>
     </footer>
   );
 };
