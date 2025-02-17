@@ -18,7 +18,7 @@ const Header = () => {
   const menuItems = ['Home', 'Projects', 'Contact'];
 
   return (
-    <header className="fixed w-full z-50 bg-black/70 backdrop-blur-sm">
+    <header className="fixed w-full z-[60] bg-black/70 backdrop-blur-sm">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-white text-2xl font-bold">AMFAPPS</div>
@@ -56,10 +56,28 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`md:hidden fixed inset-0 bg-black/98 backdrop-blur-md z-40 transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
-        }`}>
-          <div className="flex flex-col items-center justify-center min-h-screen">
+        <div 
+          className={`md:hidden fixed inset-0 bg-gray-900 z-[50] transition-all duration-300 
+            ${isMenuOpen 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 translate-x-full pointer-events-none'
+            }`}
+          style={{ backgroundColor: '#111827' }} // Ensure solid background
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-6 right-6 text-white/90 hover:text-white p-2
+              transition-all duration-300 hover:bg-[#14C800] rounded-lg
+              hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)]"
+            aria-label="Close menu"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
             <ul className="space-y-8">
               {menuItems.map((item) => (
                 <li key={item} className="text-center">
@@ -69,8 +87,7 @@ const Header = () => {
                     className="text-white px-8 py-3 rounded-lg text-2xl
                       transition-all duration-300 hover:bg-[#14C800] hover:text-white
                       hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)]
-                      transform hover:-translate-y-1 inline-block
-                      bg-black/40"
+                      transform hover:-translate-y-1 inline-block"
                   >
                     {item}
                   </a>
