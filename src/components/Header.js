@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { LanguageContext } from '../context/LanguageContext';
+import { translations } from '../data/translations';
+import usFlag from '../assets/images/us.svg';
+import esFlag from '../assets/images/es.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { language, setLanguage } = useContext(LanguageContext);
+  
   const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/contact' }
+    { name: translations[language].home, path: '/' },
+    { name: translations[language].projects, path: '/projects' },
+    { name: translations[language].contact, path: '/contact' }
+  ];
+
+  const availableLanguages = [
+    { code: 'en', label: 'English', flag: usFlag },
+    { code: 'es', label: 'Español', flag: esFlag }
   ];
 
   const handleNavigation = (path) => {
@@ -19,14 +29,14 @@ const Header = () => {
 
   return (
     <header className="fixed w-full z-[60] bg-black/70 backdrop-blur-sm">
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-4 relative">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-white text-2xl font-bold">AMFAPPS</Link>
           
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-4">
             {menuItems.map((item) => (
-              <li key={item.name}>
+              <li key={item.path}>
                 <button
                   onClick={() => handleNavigation(item.path)}
                   className={`text-white/90 px-4 py-2 rounded-lg text-lg
@@ -40,6 +50,23 @@ const Header = () => {
               </li>
             ))}
           </ul>
+
+          {/* Language Selector (Right Corner) */}
+          <div className="hidden md:flex space-x-2">
+            {availableLanguages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => setLanguage(lang.code)}
+                className="focus:outline-none"
+              >
+                <img
+                  src={lang.flag}
+                  alt={lang.label}
+                  className={`w-6 h-6 rounded-full ${language === lang.code ? 'ring-2 ring-[#14C800]' : ''}`}
+                />
+              </button>
+            ))}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -62,7 +89,7 @@ const Header = () => {
               ? 'opacity-100 translate-x-0' 
               : 'opacity-0 translate-x-full pointer-events-none'
             }`}
-          style={{ backgroundColor: '#111827' }} // Ensure solid background
+          style={{ backgroundColor: '#111827' }}
         >
           {/* Close Button */}
           <button
@@ -80,7 +107,7 @@ const Header = () => {
           <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900">
             <ul className="space-y-8">
               {menuItems.map((item) => (
-                <li key={item.name} className="text-center">
+                <li key={item.path} className="text-center">
                   <button
                     onClick={() => handleNavigation(item.path)}
                     className={`text-white px-8 py-3 rounded-lg text-2xl
@@ -94,6 +121,22 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+            {/* Mobile Language Selector */}
+            <div className="mt-8 flex space-x-2">
+              {availableLanguages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => setLanguage(lang.code)}
+                  className="focus:outline-none"
+                >
+                  <img
+                    src={lang.flag}
+                    alt={lang.label}
+                    className={`w-6 h-6 rounded-full ${language === lang.code ? 'ring-2 ring-[#14C800]' : ''}`}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
