@@ -16,30 +16,75 @@ export const portfolioData = {
   experiences: [
     {
       id: 1,
+      icon: 'code',
       area: { en: "Development", es: "Desarrollo" },
       years: 8,
       description: {
         en: "Enterprise Solutions & APIs",
         es: "Soluciones empresariales y APIs"
-      }
+      },
+      skills: [
+        {
+          name: { en: "Mulesoft Development", es: "Desarrollo Mulesoft" },
+          level: "Advanced"
+        },
+        {
+          name: { en: "API Design", es: "Diseño de APIs" },
+          level: "Expert"
+        },
+        {
+          name: { en: "Integration Patterns", es: "Patrones de Integración" },
+          level: "Advanced"
+        }
+      ]
     },
     {
       id: 2,
+      icon: 'database',
       area: { en: "Data Architecture", es: "Arquitectura de Datos" },
       years: 6,
       description: {
         en: "Integration & Analytics",
         es: "Integración y análisis"
-      }
+      },
+      skills: [
+        {
+          name: { en: "Data Modeling", es: "Modelado de Datos" },
+          level: "Expert"
+        },
+        {
+          name: { en: "SQL & NoSQL", es: "SQL y NoSQL" },
+          level: "Advanced"
+        },
+        {
+          name: { en: "ETL Processes", es: "Procesos ETL" },
+          level: "Advanced"
+        }
+      ]
     },
     {
       id: 3,
+      icon: 'cloud',
       area: { en: "Cloud Solutions", es: "Soluciones en la Nube" },
       years: 5,
       description: {
         en: "AWS & Azure Platforms",
         es: "Plataformas AWS y Azure"
-      }
+      },
+      skills: [
+        {
+          name: { en: "AWS Services", es: "Servicios AWS" },
+          level: "Advanced"
+        },
+        {
+          name: { en: "Azure Platform", es: "Plataforma Azure" },
+          level: "Advanced"
+        },
+        {
+          name: { en: "Cloud Architecture", es: "Arquitectura Cloud" },
+          level: "Expert"
+        }
+      ]
     }
   ],
   projects: [

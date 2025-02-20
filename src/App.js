@@ -8,6 +8,7 @@ import ProjectDetailsPage from './pages/ProjectDetailsPage';
 import ContactPage from './pages/ContactPage';
 import { LanguageProvider } from './context/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
+import ExperienceDetailsPage from './pages/ExperienceDetailsPage';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
                 <Route path="/:lang/projects" element={<Projects />} />
                 <Route path="/:lang/projects/:projectId" element={<ProjectDetailsPage />} />
                 <Route path="/:lang/contact" element={<ContactPage />} />
+                <Route path="/experience/:experienceId" element={<ExperienceDetailsPage />} />
+                <Route path="/:lang/experience/:experienceId" element={<ExperienceDetailsPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>

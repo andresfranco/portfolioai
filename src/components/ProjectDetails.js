@@ -69,23 +69,25 @@ const ProjectDetails = ({ project, onBackClick, onPreviousClick, onNextClick }) 
         </div>
       </div>
 
-      {/* Main Content - Adjusted top padding to account for navigation bar */}
-      <article className="max-w-7xl mx-auto px-4 pt-40 pb-12">
-        {/* Project Header */}
-        <header className="max-w-4xl mx-auto mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {title}
-          </h1>
-          {brief && (
-            <p className="text-xl text-gray-300 leading-relaxed">
-              {brief}
-            </p>
-          )}
+      {/* Main Content - Adjusted spacing for better header visibility */}
+      <article className="max-w-7xl mx-auto px-4">
+        {/* Project Header - Increased top margin for better spacing */}
+        <header className="pt-32 pb-6 md:pb-12 max-w-4xl mx-auto">
+          <div className="mt-24 mb-8 md:mb-12"> {/* Changed from mt-16 to mt-24 for more spacing */}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6">
+              {title}
+            </h1>
+            {brief && (
+              <p className="text-xl text-gray-300 leading-relaxed">
+                {brief}
+              </p>
+            )}
+          </div>
         </header>
 
-        {/* Project Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-8">
+        {/* Project Content Grid - Reordered for mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 mb-20"> {/* Reduced gap on mobile */}
+          <div className="lg:col-span-2 space-y-6 md:space-y-8 order-2 lg:order-1"> {/* Reduced spacing on mobile */}
             <div className="rounded-xl overflow-hidden bg-gray-800 shadow-lg">
               <img 
                 src={project.image}  // Use the imported image directly
@@ -100,8 +102,8 @@ const ProjectDetails = ({ project, onBackClick, onPreviousClick, onNextClick }) 
               <p className="text-gray-300">{description}</p>
             </div>
 
-            {/* Skills Section */}
-            <div className="mt-8">
+            {/* Skills Section - Added extra bottom margin */}
+            <div className="mt-8 mb-12">
               <h2 className="text-2xl font-bold text-white mb-6">
                 {translations[language].skills_technologies}
               </h2>
@@ -118,9 +120,9 @@ const ProjectDetails = ({ project, onBackClick, onPreviousClick, onNextClick }) 
             </div>
           </div>
 
-          {/* Project Info Sidebar */}
-          <aside className="lg:col-span-1">
-            <div className="bg-gray-800 rounded-xl p-6 sticky top-24">
+          {/* Project Info Sidebar - Moved to top on mobile */}
+          <aside className="lg:col-span-1 order-1 lg:order-2">
+            <div className="bg-gray-800 rounded-xl p-6 lg:sticky lg:top-24">
               <h3 className="text-xl font-semibold text-white mb-6">
                 {translations[language].project_details}
               </h3>

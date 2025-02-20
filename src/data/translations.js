@@ -24,7 +24,12 @@ export const translations = {
     project_not_found: "Project not found",
     loading_project: "Loading project data...",
     project_unavailable: "Project data unavailable",
-    close: "Close"
+    close: "Close",
+    back_to_home: "Back to Home",
+    years_experience: "Years of Experience",
+    experience_overview: "Experience Overview",
+    loading_experience: "Loading experience details...",
+    skill_level: "Skill Level"
   },
   es: {
     home: "Inicio",
@@ -51,6 +56,11 @@ export const translations = {
     project_not_found: "Proyecto no encontrado",
     loading_project: "Cargando datos del proyecto...",
     project_unavailable: "Datos del proyecto no disponibles",
-    close: "Cerrar"
+    close: "Cerrar",
+    back_to_home: "Volver al Inicio",
+    years_experience: "Años de Experiencia",
+    experience_overview: "Descripción de la Experiencia",
+    loading_experience: "Cargando detalles de experiencia...",
+    skill_level: "Nivel de Habilidad"
   }
 };

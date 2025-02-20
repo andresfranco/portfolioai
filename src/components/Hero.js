@@ -5,11 +5,13 @@ import ChatModal from './ChatModal';
 import resumePDF from '../assets/files/resume.pdf';
 import { LanguageContext } from '../context/LanguageContext';
 import { translations } from '../data/translations';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const { person, experiences } = portfolioData;
   const { language } = useContext(LanguageContext);
+  const navigate = useNavigate();
 
   const getIconComponent = (iconName) => {
     switch (iconName) {
@@ -22,6 +24,11 @@ const Hero = () => {
       default:
         return require('react-icons/fa6').FaCode;
     }
+  };
+
+  const handleExperienceClick = (expId) => {
+    const route = language === 'en' ? `/experience/${expId}` : `/${language}/experience/${expId}`;
+    navigate(route);
   };
 
   return (
@@ -43,7 +50,11 @@ const Hero = () => {
                 {experiences.map((exp) => {
                   const Icon = getIconComponent(exp.icon);
                   return (
-                    <div key={exp.id} className="flex items-center gap-4 bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10 transform hover:-translate-y-1 transition-all duration-300 hover:border-[#14C800]/30 group">
+                    <div 
+                      key={exp.id} 
+                      onClick={() => handleExperienceClick(exp.id)}
+                      className="flex items-center gap-4 bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10 transform hover:-translate-y-1 transition-all duration-300 hover:border-[#14C800]/30 group cursor-pointer"
+                    >
                       <div className="text-[#14C800] text-3xl group-hover:scale-110 transition-transform duration-300">
                         <Icon />
                       </div>
