@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react';
 import { portfolioData } from '../data/portfolio';
 import heroImage from '../assets/images/hero.jpg';
 import ChatModal from './ChatModal';
-import resumePDF from '../assets/files/resume.pdf';
 import { LanguageContext } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import { useNavigate } from 'react-router-dom';
+import enResume from '../assets/files/en_resume.pdf';
+import esResume from '../assets/files/es_resume.pdf';
 
 const Hero = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -29,6 +30,22 @@ const Hero = () => {
   const handleExperienceClick = (expId) => {
     const route = language === 'en' ? `/experience/${expId}` : `/${language}/experience/${expId}`;
     navigate(route);
+  };
+
+  // Function to get the correct resume file based on language
+  const getResumeFile = () => {
+    switch (language) {
+      case 'es':
+        return esResume;
+      case 'en':
+      default:
+        return enResume;
+    }
+  };
+
+  // Function to get the correct filename for download
+  const getResumeFileName = () => {
+    return `${language}_resume.pdf`;
   };
 
   return (
@@ -80,8 +97,8 @@ const Hero = () => {
                   {translations[language].chat_with_ai}
                 </button>
                 <a
-                  href={resumePDF}
-                  download="Andres_Franco_Resume.pdf"
+                  href={getResumeFile()}
+                  download={getResumeFileName()}
                   className="bg-[#14C800] text-white text-xl px-8 py-4 rounded-lg transition-all duration-300 hover:bg-[#14C800]/90 hover:shadow-[0_4px_20px_rgba(20,200,0,0.4)] transform hover:-translate-y-1 inline-flex items-center"
                 >
                   {translations[language].download_cv}
