@@ -29,7 +29,21 @@ export const translations = {
     years_experience: "Years of Experience",
     experience_overview: "Experience Overview",
     loading_experience: "Loading experience details...",
-    skill_level: "Skill Level"
+    skill_level: "Skill Level",
+    // Contact Component Labels
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    twitter: "Twitter",
+    contact_form: "Contact Form",
+    // Contact Page Labels
+    contact_page_description: "Have a question or want to work together? Feel free to reach out!",
+    name_label: "Name",
+    email_label: "Email",
+    subject_label: "Subject",
+    message_label: "Message",
+    send_message_button: "Send Message",
+    sending_button: "Sending...",
+    connect_with_me: "Connect With Me"
   },
   es: {
     home: "Inicio",
@@ -61,6 +75,20 @@ export const translations = {
     years_experience: "Años de Experiencia",
     experience_overview: "Descripción de la Experiencia",
     loading_experience: "Cargando detalles de experiencia...",
-    skill_level: "Nivel de Habilidad"
+    skill_level: "Nivel de Habilidad",
+    // Contact Component Labels
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    twitter: "Twitter",
+    contact_form: "Formulario de Contacto",
+    // Contact Page Labels
+    contact_page_description: "¿Tienes alguna pregunta o quieres que trabajemos juntos? ¡No dudes en contactarme!",
+    name_label: "Nombre",
+    email_label: "Correo Electrónico",
+    subject_label: "Asunto",
+    message_label: "Mensaje",
+    send_message_button: "Enviar Mensaje",
+    sending_button: "Enviando...",
+    connect_with_me: "Conéctate Conmigo"
   }
 };
